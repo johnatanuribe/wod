@@ -6,6 +6,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a Next.js 16 application using the App Router, built with TypeScript, React 19, and Tailwind CSS v4.
 
+## Critical Instructions for Code Generation
+
+**ALWAYS refer to the relevant documentation file in the `/docs` directory BEFORE generating any code.**
+
+When implementing features, fixing bugs, or making changes:
+1. First check if there's a relevant documentation file in `/docs` for the feature/component you're working on
+2. Read and understand the guidelines, patterns, and best practices documented there
+3. Follow the documented patterns and conventions when generating code
+4. If no relevant docs exist, ask the user if they want documentation created first
+
+-/docs/ui.md
+-docs/data-fetching.md
+
+This ensures consistency, adherence to project standards, and proper implementation patterns across the codebase.
+
 ## Development Commands
 
 ```bash
@@ -38,6 +53,8 @@ npm run lint
   - `globals.css` - Global styles with Tailwind v4 imports and CSS variables
 - `public/` - Static assets
 - Path aliases configured: `@/*` maps to project root
+
+
 
 ### Styling Configuration
 - Uses Tailwind CSS v4 with inline theme configuration in globals.css
