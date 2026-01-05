@@ -22,10 +22,13 @@ export function DatePicker({ initialDate }: DatePickerProps) {
 
     setSelectedDate(date)
 
-    // Update URL with new date
+    // Update URL with new date (using simple date format)
     const params = new URLSearchParams(searchParams)
-    params.set('date', date.toISOString())
+    params.set('date', format(date, 'yyyy-MM-dd'))
     router.push(`?${params.toString()}`)
+
+    // Force server re-render to fetch new data
+    router.refresh()
   }
 
   return (

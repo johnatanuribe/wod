@@ -20,7 +20,16 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
 
   // Get date from URL params or default to today
   const params = await searchParams
-  const selectedDate = params.date ? new Date(params.date) : new Date()
+  let selectedDate = new Date()
+
+  // Validate date from URL params
+  if (params.date) {
+    const parsedDate = new Date(params.date)
+    // Check if date is valid (not NaN)
+    if (!isNaN(parsedDate.getTime())) {
+      selectedDate = parsedDate
+    }
+  }
 
   // Fetch workouts for the selected date
   const workouts = await getUserWorkoutsByDate(userId, selectedDate)
